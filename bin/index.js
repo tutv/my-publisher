@@ -4,6 +4,7 @@
 const meow = require('meow')
 const myPublisher = require('../src/index')
 
+
 const cli = meow(`
 	Usage
 	  $ publish

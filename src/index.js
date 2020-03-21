@@ -1,4 +1,7 @@
+const command = require('./command')
+
+
 module.exports = (args) => {
-    console.log('Args:', args)
+    return command(args)
 }
 
