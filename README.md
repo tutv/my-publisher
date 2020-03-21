@@ -2,6 +2,10 @@
 
 A command tool to publish my packages to npmjs.org (including private packages).
 
+## Motivation
+
+- Every day, I spent too much time to publish packages to npmjs.org.
+
 
 ## Installation
 
