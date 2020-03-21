@@ -10,10 +10,11 @@ const cli = meow(`
 	  $ publish
 
 	Options
+	  --path, -p
 	  --message, -m  
 
 	Examples
-	  $ publish -m "release new version"
+	  $ publish -p . -m "release new version"
 `, {
     flags: {
         message: {

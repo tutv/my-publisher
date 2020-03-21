@@ -24,6 +24,12 @@ $ publish -m "your message"
 chmod +x ./bin/index.js
 ```
 
+- Create develop environment: create `dev.env` with content:
+```
+CURRENT_DIR=/your-dir/my-publisher-example
+```
+
+
 ## License
 
 This code is free to use under the terms of the MIT license.
