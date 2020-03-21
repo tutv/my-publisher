@@ -19,6 +19,10 @@ const cli = meow(`
         message: {
             type: 'string',
             alias: 'm'
+        },
+        path: {
+            type: 'string',
+            alias: 'p'
         }
     }
 })
