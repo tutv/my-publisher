@@ -18,12 +18,6 @@ $ publish -m "your message"
 
 ## Development
 
-- Make file executable
-
-```
-chmod +x ./bin/index.js
-```
-
 - Create develop environment: create `dev.env` with content:
 ```
 CURRENT_DIR=/your-dir/my-publisher-example
