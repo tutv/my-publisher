@@ -1,30 +1,8 @@
 const isDirectory = require('../helpers/is-directory')
-const path = require('path')
-const fs = require('fs-extra')
+const _getPackageJSON = require('../core/_getPackageJSON')
 
 
-const _getPackageJSON = async (currentDir) => {
-    const packageFile = path.join(currentDir, 'package.json')
-
-    const exists = await fs.exists(packageFile)
-
-    if (!exists) {
-        throw new Error('Your folder is not a node package.')
-    }
-
-    const content = await fs.readFile(packageFile, {encoding: 'utf8'})
-
-    try {
-        return JSON.parse(content)
-    } catch (e) {
-        throw new Error(`Parse package.json failed: ${e.message}`)
-    }
-
-    return true
-}
-
-
-module.exports = async (args) => {
+module.exports = async (args, context) => {
     const {currentDir} = args
     await isDirectory(currentDir)
     const packageObj = await _getPackageJSON(currentDir)
@@ -35,7 +13,8 @@ module.exports = async (args) => {
     }
 
     console.log('Detect package:', name)
+    context.setValue('packageJSON', packageObj)
 
-    return true
+    return context
 }
 
