@@ -1,9 +1,10 @@
 module.exports = (args = {}) => {
-    const {message, path} = args
+    const {message, path, access} = args
     const currentPath = process.cwd()
     const vPath = path || currentPath
 
     return {
+        access,
         message,
         currentDir: vPath,
     }

@@ -13,7 +13,8 @@ const {CURRENT_DIR} = process.env
 
 myPublisher({
     path: CURRENT_DIR,
-    message: 'my message'
+    message: 'my message',
+    access: 'public'
 })
 
 

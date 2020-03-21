@@ -12,9 +12,10 @@ const cli = meow(`
 	Options
 	  --path, -p
 	  --message, -m  
+	  --access, -a  
 
 	Examples
-	  $ publish -p . -m "release new version"
+	  $ publish -p . -m "release new version" --access public
 `, {
     flags: {
         message: {
@@ -24,6 +25,11 @@ const cli = meow(`
         path: {
             type: 'string',
             alias: 'p'
+        },
+        access: {
+            type: 'string',
+            alias: 'a',
+            default: 'private'
         }
     }
 })
