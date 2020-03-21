@@ -5,7 +5,7 @@ module.exports = (args = {}) => {
 
     return {
         access,
-        message,
+        message: message || 'upgraded',
         currentDir: vPath,
     }
 }
