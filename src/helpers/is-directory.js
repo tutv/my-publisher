@@ -13,6 +13,8 @@ module.exports = async (dir = '') => {
         throw new Error('Your path is not a directory.')
     }
 
+    console.log('is directory', dir)
+
     return true
 }
 
