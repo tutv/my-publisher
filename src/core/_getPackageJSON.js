@@ -1,10 +1,9 @@
 const fs = require('fs-extra')
-const path = require('path')
+const _getPackageJSONPath = require('./_getPackageJSONPath')
 
 
 module.exports = async (currentDir) => {
-    const packageFile = path.join(currentDir, 'package.json')
-
+    const packageFile = _getPackageJSONPath(currentDir)
     const exists = await fs.exists(packageFile)
 
     if (!exists) {

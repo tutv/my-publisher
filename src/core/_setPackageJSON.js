@@ -1,6 +1,6 @@
 const _getPackageJSON = require('./_getPackageJSON')
+const _getPackageJSONPath = require('./_getPackageJSONPath')
 const fs = require('fs-extra')
-const path = require('path')
 
 
 module.exports = async (currentDir, field, value) => {
@@ -11,8 +11,7 @@ module.exports = async (currentDir, field, value) => {
     })
 
     const content = JSON.stringify(newObject, null, 2)
-    const packageFile = path.join(currentDir, 'package.json')
-
+    const packageFile = _getPackageJSONPath(currentDir)
     await fs.writeFile(packageFile, content, {encoding: 'utf8'})
 
     return true
