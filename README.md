@@ -24,3 +24,7 @@ $ publish -m "your message"
 chmod +x ./bin/index.js
 ```
 
+## License
+
+This code is free to use under the terms of the MIT license.
+
