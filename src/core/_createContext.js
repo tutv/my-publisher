@@ -8,7 +8,7 @@ module.exports = (args) => {
         const {data} = object
 
         object.data = Object.assign({}, data, {
-            field: value
+            [field]: value
         })
 
         return object.data

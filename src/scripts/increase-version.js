@@ -1,5 +1,6 @@
 module.exports = async (args, context) => {
-    console.log(context)
+    const {version: currentVersion} = context.getValue('packageJSON')
+    console.log('currentVersion:', currentVersion)
 
     return context
 }
