@@ -1,1 +1,2 @@
-console.log('hello npmjs.org')
+module.exports = require('./src/index')
+

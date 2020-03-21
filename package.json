@@ -10,11 +10,17 @@
     "type": "git",
     "url": "git+https://github.com/tutv/my-publisher.git"
   },
+  "bin": {
+    "publish": "./bin/index.js"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/tutv/my-publisher/issues"
   },
-  "homepage": "https://github.com/tutv/my-publisher#readme"
+  "homepage": "https://github.com/tutv/my-publisher#readme",
+  "dependencies": {
+    "meow": "^6.1.0"
+  }
 }
