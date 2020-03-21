@@ -1,6 +1,6 @@
 {
   "name": "my-publisher",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Publish my packages to npmjs.org (including private packages)",
   "main": "index.js",
   "scripts": {
