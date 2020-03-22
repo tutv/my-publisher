@@ -16,7 +16,9 @@ const cli = meow(`
 	  --release, -r Release type: auto, patch, minor, major
 
 	Examples
+	  $ publish
 	  $ publish -p . -m "release new version" --access public
+	  $ publish -p . -m "release new version" --access private --release minor
 `, {
     flags: {
         message: {
