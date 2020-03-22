@@ -12,7 +12,8 @@ const cli = meow(`
 	Options
 	  --path, -p
 	  --message, -m  
-	  --access, -a  
+	  --access, -a public or private
+	  --release, -r Release type: auto, patch, minor, major
 
 	Examples
 	  $ publish -p . -m "release new version" --access public
@@ -31,6 +32,11 @@ const cli = meow(`
             type: 'string',
             alias: 'a',
             default: 'private'
+        },
+        release: {
+            type: 'string',
+            alias: 'r',
+            default: 'auto'
         }
     }
 })

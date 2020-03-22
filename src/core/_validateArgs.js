@@ -1,5 +1,5 @@
 module.exports = (args = {}) => {
-    const {message, path, access} = args
+    const {message, path, access, release} = args
     const currentPath = process.cwd()
     const vPath = path || currentPath
 
@@ -7,6 +7,7 @@ module.exports = (args = {}) => {
         access,
         message: message || 'upgraded',
         currentDir: vPath,
+        release,
     }
 }
 

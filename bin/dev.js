@@ -9,12 +9,13 @@ dotenv.config({
     path: path.join(__dirname, '../dev.env')
 })
 
-const {CURRENT_DIR, ACCESS} = process.env
+const {CURRENT_DIR, ACCESS, RELEASE} = process.env
 
 myPublisher({
     path: CURRENT_DIR,
     message: 'my message',
-    access: ACCESS || 'public'
+    access: ACCESS || 'public',
+    release: RELEASE || 'auto'
 })
 
 
