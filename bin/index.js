@@ -20,11 +20,12 @@ const cli = meow(`
     flags: {
         message: {
             type: 'string',
-            alias: 'm'
+            alias: 'm',
+            default: 'Increase new version'
         },
         path: {
             type: 'string',
-            alias: 'p'
+            alias: 'p',
         },
         access: {
             type: 'string',

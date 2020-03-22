@@ -16,7 +16,9 @@ $ npm install -g my-publisher
 ## Usage
 
 ```
-$ publish -m "your message"
+$ publish -m "your message" --access public
+
+$ publish --help
 ```
 
 ## What the cli do
@@ -26,9 +28,9 @@ $ publish -m "your message"
 - Commit `package.json`
 - Push to `origin develop`
 - Merge `develop` into `master`
-- Check `.npmrc` and hide `.npmrc` if needed.
-- Run `npm publish` with global `.npmrc` (from `~/.npmrc`)
-- Checkout to `develop` again.
+- Check `.npmrc` and hide `.npmrc` if needed
+- Run `npm publish` with global `.npmrc` file (from `~/.npmrc`)
+- Checkout to `develop` again
 
 
 ## Development
