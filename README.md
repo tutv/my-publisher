@@ -1,6 +1,6 @@
 # my-publisher
 
-A command tool to publish my packages to npmjs.org (including private packages).
+A command tool to publish my packages on npmjs.org (including private packages).
 
 ## Motivation
 
