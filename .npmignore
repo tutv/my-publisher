@@ -1,3 +1,6 @@
 test/
 
 .idea/
+dev.env
+yarn-error.log
+
