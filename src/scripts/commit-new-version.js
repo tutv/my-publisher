@@ -15,14 +15,10 @@ module.exports = async (args, context) => {
     await git.commit(message)
     spinner.succeed(`Committed with message: ${message}`)
 
-    spinner.start(`git pull origin develop`)
-    await git.pull('origin', 'develop')
-    spinner.succeed(`git pull origin develop`)
 
     spinner.start(`git push origin develop`)
     await git.push('origin', 'develop')
-    spinner.succeed(`git push origin develop`)
-    spinner.succeed('Pushed develop.').stop()
+    spinner.succeed(`git push origin develop`).stop()
 
     return context
 }
