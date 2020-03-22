@@ -25,6 +25,17 @@ $ publish -m "your message"
 - Create develop environment: create `dev.env` with content:
 ```
 CURRENT_DIR=/your-dir/my-publisher-example
+ACCESS=public
+```
+
+- Install dependency packages:
+```
+npm install
+```
+
+- Run script:
+```
+npm run dev
 ```
 
 
