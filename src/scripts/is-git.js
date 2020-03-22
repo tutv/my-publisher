@@ -4,17 +4,24 @@ const ora = require('ora')
 
 module.exports = async (args, context) => {
     const spinner = ora('Check is git folder?').start()
-    const {currentDir} = args
 
-    const git = SimpleGit(currentDir)
-    const isRepo = await git.checkIsRepo()
+    try {
+        const {currentDir} = args
 
-    if (!isRepo) {
-        throw new Error('Your package is not a git folder.')
+        const git = SimpleGit(currentDir)
+        const isRepo = await git.checkIsRepo()
+
+        if (!isRepo) {
+            throw new Error('Your package is not a git folder.')
+        }
+
+        spinner.succeed('Folder is git').stop()
+
+        return context
+    } catch (e) {
+        spinner.fail(e.message).stop()
+
+        throw e
     }
-
-    spinner.succeed('Folder is git').stop()
-
-    return context
 }
 

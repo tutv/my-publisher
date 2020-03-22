@@ -3,14 +3,21 @@ const ora = require('ora')
 
 
 module.exports = async (args, context) => {
-    const {currentDir} = args
     const spinner = ora(`Check develop up-to-date...`).start()
 
-    const git = SimpleGit(currentDir)
+    try {
+        const {currentDir} = args
 
-    spinner.start(`git pull origin develop`)
-    await git.pull('origin', 'develop')
-    spinner.succeed(`develop branch is up-to-date now.`).stop()
+        const git = SimpleGit(currentDir)
 
-    return context
+        spinner.start(`git pull origin develop`)
+        await git.pull('origin', 'develop')
+        spinner.succeed(`develop branch is up-to-date now.`).stop()
+
+        return context
+    } catch (e) {
+        spinner.fail(e.message).stop()
+
+        throw e
+    }
 }

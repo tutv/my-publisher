@@ -6,15 +6,21 @@ const ora = require('ora')
 module.exports = async (args, context) => {
     const spinner = ora('Check package version').start()
 
-    const {version: currentVersion} = context.getValue('packageJSON')
-    spinner.succeed(`Current version: ${currentVersion}`)
+    try {
+        const {version: currentVersion} = context.getValue('packageJSON')
+        spinner.succeed(`Current version: ${currentVersion}`)
 
-    const {currentDir, release} = args
-    const newVersion = await _getNewVersion(currentVersion, release)
-    context.setValue('newVersion', newVersion)
-    await _setPackageJSON(currentDir, 'version', newVersion)
+        const {currentDir, release} = args
+        const newVersion = await _getNewVersion(currentVersion, release)
+        context.setValue('newVersion', newVersion)
+        await _setPackageJSON(currentDir, 'version', newVersion)
 
-    spinner.succeed(`New version: ${newVersion}`).stop()
+        spinner.succeed(`New version: ${newVersion}`).stop()
 
-    return context
+        return context
+    } catch (e) {
+        spinner.fail(e.message).stop()
+
+        throw e
+    }
 }
