@@ -1,8 +1,10 @@
 const isDirectory = require('../helpers/is-directory')
 const _getPackageJSON = require('../core/_getPackageJSON')
+const ora = require('ora')
 
 
 module.exports = async (args, context) => {
+    const spinner = ora('Check node package:').start()
     const {currentDir} = args
     await isDirectory(currentDir)
     const packageObj = await _getPackageJSON(currentDir)
@@ -12,7 +14,7 @@ module.exports = async (args, context) => {
         throw new Error('Package name is empty.')
     }
 
-    console.log('Detect package:', name)
+    spinner.succeed(`Detect package: ${name}`).stop()
     context.setValue('packageJSON', packageObj)
 
     return context

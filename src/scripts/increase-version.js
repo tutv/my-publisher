@@ -1,18 +1,20 @@
 const _getNewVersion = require('../core/_getNewVersion')
 const _setPackageJSON = require('../core/_setPackageJSON')
+const ora = require('ora')
 
 
 module.exports = async (args, context) => {
+    const spinner = ora('Check package version').start()
+
     const {version: currentVersion} = context.getValue('packageJSON')
-    console.log('currentVersion:', currentVersion)
+    spinner.succeed(`Current version: ${currentVersion}`)
 
     const {currentDir, release} = args
-
     const newVersion = await _getNewVersion(currentVersion, release)
-    console.log('newVersion', newVersion)
     context.setValue('newVersion', newVersion)
-
     await _setPackageJSON(currentDir, 'version', newVersion)
+
+    spinner.succeed(`New version: ${newVersion}`).stop()
 
     return context
 }

@@ -1,18 +1,28 @@
 const SimpleGit = require('simple-git/promise')
 const _getPackageJSONPath = require('../core/_getPackageJSONPath')
+const ora = require('ora')
 
 
 module.exports = async (args, context) => {
     const {currentDir, message} = args
+    const spinner = ora(`Committing...`).start()
+
     const git = SimpleGit(currentDir)
     const packageJSON = _getPackageJSONPath(currentDir)
 
-    console.log('Commit:', message)
+
     await git.add(packageJSON)
     await git.commit(message)
+    spinner.succeed(`Committed with message: ${message}`)
+
+    spinner.start(`git pull origin develop`)
     await git.pull('origin', 'develop')
+    spinner.succeed(`git pull origin develop`)
+
+    spinner.start(`git push origin develop`)
     await git.push('origin', 'develop')
-    console.log('Pushed develop.')
+    spinner.succeed(`git push origin develop`)
+    spinner.succeed('Pushed develop.').stop()
 
     return context
 }

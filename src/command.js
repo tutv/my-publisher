@@ -13,8 +13,6 @@ const backToDevelop = require('./scripts/back-to-develop')
 
 
 const _run = async (args) => {
-    console.log('Start to run:', new Date())
-
     const context = _createContext(args)
 
     const context1 = await isNodePackage(args, context)
