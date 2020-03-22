@@ -19,6 +19,17 @@ $ npm install -g my-publisher
 $ publish -m "your message"
 ```
 
+## What the cli do
+
+- Checkout to `develop` branch
+- Increase version in `package.json`
+- Commit `package.json`
+- Push to `origin develop`
+- Merge `develop` into `master`
+- Check `.npmrc` and hide `.npmrc` if needed.
+- Run `npm publish` with global `.npmrc` (from `~/.npmrc`)
+- Checkout to `develop` again.
+
 
 ## Development
 
