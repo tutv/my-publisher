@@ -4,7 +4,7 @@ A command tool to publish my packages on npmjs.org (including private packages).
 
 ## Motivation
 
-- Every day, I spent too much time to publish packages to npmjs.org.
+- Every day, I spend too much time to publish packages to npmjs.org.
 
 
 ## Installation
