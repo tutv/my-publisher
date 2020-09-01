@@ -28,6 +28,7 @@ $ publish --help
 - Commit `package.json`
 - Push to `origin develop`
 - Merge `develop` into `master`
+- Create a tag with format **release/vx.y.z** from master
 - Check `.npmrc` and hide `.npmrc` if needed
 - Run `npm publish` with global `.npmrc` file (from `~/.npmrc`)
 - Checkout to `develop` again

@@ -7,6 +7,7 @@ const upToDAte = require('./scripts/up-to-date')
 const increaseVersion = require('./scripts/increase-version')
 const commitNewVersion = require('./scripts/commit-new-version')
 const mergeIntoMaster = require('./scripts/mergeIntoMaster')
+const createTag = require('./scripts/create-tag')
 const hideNPMrc = require('./scripts/hide-npmrc')
 const restoreNPMrc = require('./scripts/restore-npmrc')
 const npmPublish = require('./scripts/npm-publish')
@@ -23,10 +24,11 @@ const _run = async (args) => {
     const context5 = await increaseVersion(args, context4)
     const context6 = await commitNewVersion(args, context5)
     const context7 = await mergeIntoMaster(args, context6)
-    const context8 = await hideNPMrc(args, context7)
-    const context9 = await npmPublish(args, context8)
-    const context10 = await restoreNPMrc(args, context9)
-    await backToDevelop(args, context10)
+    const context8 = await createTag(args, context7)
+    const context9 = await hideNPMrc(args, context8)
+    const context10 = await npmPublish(args, context9)
+    const context11 = await restoreNPMrc(args, context10)
+    await backToDevelop(args, context11)
 
     return true
 }
