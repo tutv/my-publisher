@@ -1,5 +1,5 @@
 module.exports = (args = {}) => {
-    const {message, path, access, release, 'publish-only': publishOnly} = args
+    const {message, path, access, release, 'publishOnly': publishOnly} = args
     const currentPath = process.cwd()
     const vPath = path || currentPath
 

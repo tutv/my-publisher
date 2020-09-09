@@ -21,7 +21,7 @@ const cli = meow(`
 	  $ publish -p . -m "release new version" --access private --release minor
 `, {
     flags: {
-        'publish-only': {
+        publishOnly: {
             type: "string",
             alias: 'po',
             default: 'disabled'
