@@ -5,6 +5,8 @@ const ora = require('ora')
 
 
 module.exports = async (args, context) => {
+    const {publishOnly} = args
+
     const spinner = ora('Publishing...').start()
 
     try {
@@ -15,7 +17,10 @@ module.exports = async (args, context) => {
             options.push('--access', 'public')
         }
 
-        await _copyGlobalNPMrc(currentDir)
+        if (publishOnly !== 'enabled') {
+            await _copyGlobalNPMrc(currentDir)
+        }
+
         const {stdout} = await execa('npm', options)
         spinner.succeed('NPM publish output:')
         spinner.succeed(stdout).stop()

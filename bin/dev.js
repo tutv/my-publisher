@@ -15,7 +15,8 @@ myPublisher({
     path: CURRENT_DIR,
     message: 'my message',
     access: ACCESS || 'public',
-    release: RELEASE || 'auto'
+    release: RELEASE || 'auto',
+    'publish-only': 'enabled',
 })
 
 

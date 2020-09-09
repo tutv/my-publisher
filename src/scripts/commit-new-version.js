@@ -4,6 +4,9 @@ const ora = require('ora')
 
 
 module.exports = async (args, context) => {
+    const {publishOnly} = args
+    if (publishOnly === 'enabled') return context
+
     const spinner = ora(`Committing...`).start()
 
     try {

@@ -2,7 +2,9 @@ const SimpleGit = require('simple-git/promise')
 
 
 module.exports = async (args, context) => {
-    const {currentDir} = args
+    const {currentDir, publishOnly} = args
+    if (publishOnly === 'enabled') return context
+
     const git = SimpleGit(currentDir)
 
     const {current: currentBranch, all: allBranches} = await git.branch()

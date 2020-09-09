@@ -8,8 +8,9 @@ module.exports = async (args, context) => {
     try {
         const {currentDir, message} = args
         const git = SimpleGit(currentDir)
+        const {version: _version} = context.getValue('packageJSON')
 
-        const currentVersion = context.getValue('newVersion')
+        const currentVersion = context.getValue('newVersion') || _version
         const version = `release/v${currentVersion}`
         const rMessage = `Release: ${message}`
 
